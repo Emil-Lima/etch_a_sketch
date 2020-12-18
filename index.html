@@ -50,16 +50,15 @@
                 const paragraphs = document.querySelectorAll(`p`);
                 paragraphs.forEach((p) => {
                     p.setAttribute(`id`, `square`);
-                    let randomColor = Math.floor(Math.random() * 360).toString();
-                    let randomPercentage = Math.floor(Math.random() * 100).toString();
+                    let decreasePercentage = 90;
                     p.addEventListener(`mouseover`, () => {
-                        p.setAttribute(`style`, `background: hsl(${randomColor},${randomPercentage}%,${randomPercentage}%)`);
+                        p.setAttribute(`style`, `background: hsl(0,0%,${decreasePercentage}%)`);
+                        decreasePercentage -= 10;
                     });
                 });
             }
 
             
-
             const btn = document.querySelector(`button`);
 
             btn.addEventListener(`click`, () => {

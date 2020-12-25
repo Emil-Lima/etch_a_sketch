@@ -1,12 +1,18 @@
 body {
     background-color: aliceblue;
 }
+
 #afterBody {
     display: flex;
     justify-content: center;
 }
-button {
+
+#allButtons {
     display: flex;
+    justify-content: center;
+}
+
+button {
     justify-content: center;
     margin: auto;
     margin-top: 10px;

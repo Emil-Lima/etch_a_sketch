@@ -40,6 +40,13 @@
     })
 })();
 
+(function pokemon () {
+    const btn = document.getElementById("pokemon")
+    btn.addEventListener("click", () => {
+        pokemizer();
+    })
+})();
+
 function createGrid (base = 16) {
     const toDelete = document.querySelectorAll(`p`);
     toDelete.forEach((p) => {
@@ -51,22 +58,10 @@ function createGrid (base = 16) {
         modified.textContent = ` `;
         document.getElementById(`baseDiv`).appendChild(modified);
     }
-    blackColor();
 };
 
 createGrid();
-
-function multiColor () {
-    const paragraphs = document.querySelectorAll(`p`);
-    paragraphs.forEach((p) => {
-        p.setAttribute(`id`, `square`);
-        let randomColor = Math.floor(Math.random() * 360).toString();
-        let randomPercentage = Math.floor(Math.random() * 100).toString();
-        p.addEventListener(`mouseover`, () => {
-            p.setAttribute(`style`, `background: hsl(${randomColor},${randomPercentage}%,${randomPercentage}%)`);
-        });
-    });
-}
+blackColor();
 
 function blackColor () {
     const paragraphs = document.querySelectorAll(`p`);
@@ -76,7 +71,7 @@ function blackColor () {
             p.setAttribute(`style`, `background: black`);
         });
     });
-}
+};
 
 function erase () {
     const paragraphs = document.querySelectorAll(`p`);
@@ -103,6 +98,30 @@ function gray () {
         p.addEventListener(`mouseover`, () => {
             p.setAttribute(`style`, `background: hsl(0,0%,${decreasePercentage}%)`);
             decreasePercentage -= 10;
+        });
+    });
+}
+
+function multiColor () {
+    const paragraphs = document.querySelectorAll(`p`);
+    paragraphs.forEach((p) => {
+        p.setAttribute(`id`, `square`);
+        let randomColor = Math.floor(Math.random() * 360).toString();
+        let randomPercentage = Math.floor(Math.random() * 100).toString();
+        p.addEventListener(`mouseover`, () => {
+            p.setAttribute(`style`, `background: hsl(${randomColor},${randomPercentage}%,${randomPercentage}%)`);
+        });
+    });
+}
+
+function pokemizer () {
+    const paragraphs = document.querySelectorAll(`p`);
+    paragraphs.forEach((p) => {
+        p.setAttribute(`id`, `square`);
+        let choice = Math.floor(Math.random() * 649).toString();
+        p.addEventListener(`mouseover`, () => {
+            p.setAttribute(`style`, `background-image: url("../pokemon/${choice}.png"); background-size: cover`);
+            console.log("pressed");
         });
     });
 }
